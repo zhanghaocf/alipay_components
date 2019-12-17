@@ -1,0 +1,99 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+>
+  <view class="se_wrap">
+    <image mode="widthFix" src="/images/icon_del.png" class="se_del" catchTap="onShowpop"/>
+    <view class="se_savewaywrap">
+      <view class="se_waylist {{wayidx===0?'activeway':''}} {{isIos?'order2':''}}"
+            data-idx="0"
+            catchTap="selway">
+        <image mode="widthFix" src="/components/saveEle/img/{{wayidx===0?'a_phone':'phone'}}.png" class="se_img"/>
+        <view class="se_txt">保存到手机</view>
+      </view>
+      <view hidden="{{!extract_str}}"
+            class="se_waylist {{wayidx===1?'activeway':''}}"
+            data-idx="1"
+            catchTap="selway">
+        <image mode="widthFix" src="/components/saveEle/img/{{wayidx===1?'a_comp':'comp'}}.png" class="se_img"/>
+        <view class="se_txt">提取码提取</view>
+      </view>
+      <view class="se_waylist {{wayidx===2?'activeway':''}}"
+            data-idx="2"
+            catchTap="selway">
+        <image mode="widthFix" src="/components/saveEle/img/{{wayidx===2?'a_email':'email'}}.png" class="se_img"/>
+        <view class="se_txt">发送至邮箱</view>
+      </view>
+    </view>
+    <view class="se_detail" hidden="{{wayidx!==0}}">
+      <view class="infowrap">
+        <image mode="widthFix" src="/components/saveEle/img/zhuyi.png" class="se_zhuyi"/>
+        直接保存至手机会对照片进行压缩哦（影响照片分辨率）
+      </view>
+      <view class="se_saveBtn"
+            hover-class="active_sebtn"
+            hover-stay-time="100"
+            hover-start-time="10"
+            catchTap="savephone">保存到手机相册</view>
+    </view>
+    <view class="se_detail" hidden="{{wayidx!==1}}">
+      <view class="infowrap">
+        <image mode="widthFix" src="/components/saveEle/img/zhuyi.png" class="se_zhuyi"/>
+        请在“电脑浏览器”中打开网址提取证件照
+      </view>
+      <view class="tiquma">
+        <view class="tqmlist">
+          下载地址
+          <view class="tmqval">
+            {{downurl}}
+          </view>
+        </view>
+        <view class="tqmlist">
+          提取码
+          <view class="tmqval">
+            {{extract_str}}
+          </view>
+        </view>
+      </view>
+      <view class="se_saveBtn"
+            hover-class="active_sebtn"
+            hover-stay-time="100"
+            hover-start-time="10"
+            catchTap="copyFn">复制网址及提取码</view>
+    </view>
+    <view class="se_detail" hidden="{{wayidx!==2}}">
+      <view class="infowrap">
+        <image mode="widthFix" src="/components/saveEle/img/zhuyi.png" class="se_zhuyi"/>
+        为了保证照片能正常发送，请输入有效的邮箱地址
+      </view>
+      <form onSubmit="onSubmit">
+        <view class="tiquma">
+          <view class="iptlist">
+            *电子邮箱
+            <input name="email" a:if="{{isIos}}" enableNative="{{false}}" value="{{email}}" class="seipt" placeholder="请输入您的邮箱" />
+            <input name="email" a:if="{{!isIos}}" value="{{email}}" class="seipt" placeholder="请输入您的邮箱" />
+          </view>
+          <view class="iptlist">
+            文件名
+            <input name="filename" a:if="{{isIos}}" enableNative="{{false}}" value="{{filename}}" class="seipt" placeholder="请为照片命名" />
+            <input name="filename" a:if="{{!isIos}}" value="{{filename}}" class="seipt" placeholder="请为照片命名" />
+          </view>
+          <view class="iptlist">
+            主题
+            <input name="theme" a:if="{{isIos}}" enableNative="{{false}}" value="{{theme}}" class="seipt" placeholder="请输入您的邮件主题" />
+            <input name="theme" a:if="{{!isIos}}" value="{{theme}}" class="seipt" placeholder="请输入您的邮件主题" />
+          </view>
+          <textarea onBlur="blurfn" a:if="{{isIos}}" enableNative="{{false}}" class="dettxt" value="{{detail}}" name="detail" placeholder="请输入您的邮件正文"  />
+          <textarea onBlur="blurfn" a:if="{{!isIos}}" class="dettxt" value="{{detail}}" name="detail" placeholder="请输入您的邮件正文"  />
+        </view>
+        <button class="se_saveBtn emailbtn"
+              hover-class="active_sebtn"
+              hover-stay-time="100"
+              hover-start-time="10"
+              formType="submit">
+          发送至指定邮箱
+        </button>
+      </form>
+    </view>
+  </view>
+</pop>

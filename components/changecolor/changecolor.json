@@ -1,0 +1,8 @@
+{
+  "component":true,
+  "usingComponents":{
+    "pop":"/components/popup/popup",
+    "colorsel":"/components/colorSel/colorSel",
+    "duicuo":"/components/duicuo/duicuo"
+  }
+}

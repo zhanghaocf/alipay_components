@@ -1,0 +1,26 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop">
+<view class="opsgroup">
+  <view class="opsitem stcf" catchTap="cancelFn">取消</view>
+  <view class="opsitem">日期</view>
+  <view class="opsitem stcf" catchTap="finishFn">完成</view>
+</view>
+<view class="page-section">
+  <view class="page-section-demo">
+    <picker-view value="{{result}}"
+                 onChange="onChange"
+                 class="my-picker"
+                 indicator-class="pva">
+      <picker-view-column>
+        <view a:for="{{years}}" :key="*this">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view a:for="{{months}}" :key="*this">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view a:for="{{days}}" :key="*this">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+</pop>

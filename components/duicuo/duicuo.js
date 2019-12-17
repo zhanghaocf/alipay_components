@@ -1,0 +1,14 @@
+Component({
+  props:{
+    onCancel:()=>{},//取消操作通知父级
+    onOk:()=>{}//确定操作通知父级
+  },
+  methods:{
+    cancel(){
+      this.props.onCancel()
+    },
+    go(){
+      this.props.onOk()
+    }
+  }
+})

@@ -1,0 +1,23 @@
+<view class="txtWrap">
+  <view class="txtcot">
+    <view class="txttitle">添加文字</view>
+    <view class="txtereacot">文字不超过18个字</view>
+    <input maxlength="{{maxlength}}"
+          value="{{txt}}"
+          onInput="iptfn"
+          a:if="{{!isIos}}"
+          placeholder="{{placeholder}}"
+          class="iptcls"/>
+    <input maxlength="{{maxlength}}"
+          value="{{txt}}"
+          onInput="iptfn"
+          a:if="{{isIos}}"
+          enableNative="{{false}}"
+          placeholder="{{placeholder}}"
+          class="iptcls"/>
+    <view class="txtgroup">
+      <view class="txtcancel" catchTap="cancelfn">取消</view>
+      <view class="txtsure" catchTap="onSubmit">确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="sp_wrap" hidden="{{!isShow}}">
+  <view class="mask" disable-scroll="{{true}}"></view>
+  <view class="bgwrap">
+    <image mode="widthFix" src="/images/icon_del.png" class="delimg" catchTap="closeFn"/>
+    <view class="sp_title">请选择冲印照背景色</view>
+    <scroll-view class="sp_scroll_view_H" scroll-x="{{true}}" >
+      <view a:for="{{color}}"
+            a:key="id"
+            class="sp_imglist {{selIdx===index?'sp_active':''}}"
+            data-idx="{{index}}"
+            style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})"
+            catchTap="selClr"
+      >
+        <image mode="aspectFill"
+              class="sp_imglistimg"
+              src="{{imgurl}}"/>
+      </view>
+      <view class="w48"></view>
+    </scroll-view>
+    <view class="sp_btn"
+          hover-class="activeSpBtn"
+          hover-stay-time="100"
+          hover-start-time="10"
+          catchTap="submitprint">提交冲印</view>
+    <view class="sp_zy">
+      <image mode="widthFix" src="/images/payattention.png" class="sp_payattention"/>
+      每次提交冲印订单时只能选择单一背景色
+    </view>
+  </view>
+</view>

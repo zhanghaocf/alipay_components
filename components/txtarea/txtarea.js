@@ -1,0 +1,31 @@
+const config = getApp().globalData;
+Component({
+  props:{
+    maxlength:18,
+    onClose:()=>{},//关闭弹窗
+    onSureTxt:()=>{},
+    txt:'',
+    placeholder:'请输入文字',
+    onIpt:()=>{}
+  },
+  data:{
+    isIos:false
+  },
+  didMount(){
+    this.setData({
+      isIos:config.isIos
+    })
+  },
+  methods:{
+    onSubmit(){
+      this.props.onSureTxt()
+    },
+    iptfn(e){
+      this.props.onIpt(e)
+    },
+    cancelfn(){
+      console.log("取消")
+      this.props.onClose()
+    }
+  }
+})

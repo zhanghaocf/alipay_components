@@ -1,0 +1,14 @@
+<import src="/templates/order/order.axml" />
+<view class='tabbar {{needPb35?"needPb35":""}}' style="background-color:{{backgroundColor}};color:{{color}}">
+  <block a:for="{{list}}" a:key="text">
+    <view class='item' data-path="{{item.pagePath}}" data-index="{{index}}" catchTap="selFn">
+      <image class='itemimg' src='{{activeIndex===index?item.activeIcon:item.icon}}'></image>
+      <view class='title' style='color:{{activeIndex===index?selectedcolor:""}}'>{{item.name}}</view>
+    </view>
+  </block>
+</view>
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}">
+  <template is="order"></template>
+</pop>

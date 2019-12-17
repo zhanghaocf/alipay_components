@@ -1,0 +1,70 @@
+.beautywrap{
+  background-color: #F7F7F7;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  padding:54rpx 56rpx;
+  overflow: hidden;
+  box-shadow: 0 0 40rpx rgba(0,0,0,0.2);
+}
+.bscroll-view_H{
+  display: flex;
+  display: -webkit-flex;
+  box-sizing: border-box;
+  overflow-x:auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.meiitem{
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 22rpx;
+  color:#303133;
+  margin-right: 32rpx;
+}
+.meiwrap{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 12rpx;
+  background-color: white;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+.meiimg{
+  width:48rpx;
+  height:48rpx;
+}
+.mactiveColor{
+  color:#4710ED;
+}
+.mactive .meiwrap{
+  background-image:linear-gradient(to right,#8356FF,#4710ED);
+}
+.slidewrap{
+  box-sizing: border-box;
+  padding:0 74rpx;
+}
+.slidelist{
+  margin-bottom: 40rpx;
+}
+.name{
+  font-size: 26rpx;
+  color:#303133;
+}
+.opgroup{
+  font-size: 28rpx;
+  color:#303133;
+  display: flex;
+  display: -webkit-flex;
+}
+.optxt{
+  padding:10rpx;
+}
+.optxt:first-child{
+  margin-right: 64rpx;
+}
+.actbeauty{
+  color:#4710ED;
+}

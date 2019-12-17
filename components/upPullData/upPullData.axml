@@ -1,0 +1,21 @@
+<scroll-view class='sv {{isHidden?"hiden":""}}' scroll-into-view="{{scrolltoView}}" scroll-y="{{!isLoading}}" style='height:{{scrollViewHeight}}px' trap-scroll="{{true}}" lower-threshold="{{lowerThreshold}}" enable-back-to-top="true" onScrollToLower="getList">
+<slot></slot>
+<view class="loading0" a:if="{{isLoading&&loadingType==='Loading0'}}">
+    <view class='updown'>加</view>
+    <view class='updown'>载</view>
+    <view class='updown'>数</view>
+    <view class='updown'>据</view>
+    <view class='updown'>中</view>
+  </view>
+  <view class='loading1' a:if="{{isLoading&&loadingType!=='Loading0'}}">
+    <image a:if="{{loadingType==='Loading1'}}" src='/components/upPullData/img/loading1.png' class='loadingImg'></image>
+    <image a:if="{{loadingType==='Loading2'}}" src='/components/upPullData/img/loading2.png' class='loadingImg'></image>
+    <image a:if="{{loadingType==='Loading3'}}" src='/components/upPullData/img/loading3.png' class='loadingImg'></image>
+    <image a:if="{{loadingType==='Loading4'}}" src='/components/upPullData/img/loading4.png' class='loadingImg'></image>
+    加载数据中
+  </view>
+  <view class='finishData' a:if="{{!isLoading&&isFinish}}">
+    <image class='noinfo' src='/components/upPullData/img/no-info.png'></image>
+    没有数据啦~
+  </view>
+</scroll-view>

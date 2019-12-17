@@ -1,0 +1,44 @@
+Component({
+  props:{
+    showFlag:false,
+    closes:{},
+    chooseKey:"",
+    onCloseClothes:()=>{},
+    onChooseClothes:()=>{},//选择正装
+    onInitVal:()=>{},//点击初始化数据
+    onCloseKey:()=>{} //点击确定关闭弹窗
+  },
+  data:{
+    typename:"girl"
+  },
+  methods:{
+    onShowpop(){
+      this.props.onCloseClothes()
+    },
+    checktype(e){
+      let {type} = e.currentTarget.dataset
+      this.setData({
+        typename:type
+      })
+    },
+    choosekey(e){
+      let {key} = e.currentTarget.dataset
+      if(this.props.chooseKey===key){
+        return
+      }
+      this.props.onChooseClothes(key)
+    },
+    initval(){
+      this.setData({
+        typename:'girl'
+      })
+    },
+    onCancel(){
+      this.initval()
+      this.props.onInitVal()
+    },
+    onOk(){
+      this.props.onCloseKey()
+    }
+  }
+})

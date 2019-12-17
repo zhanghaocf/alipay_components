@@ -1,0 +1,20 @@
+.pva{
+  background-color: white!important;
+  z-index: -1;
+}
+.opsgroup{
+  font-size: 34rpx;
+  color:#303133;
+  display: flex;
+  display: -webkit-flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  height:84rpx;
+  background-color: white;
+}
+.stcf{
+  color:#4710ED;
+  padding:20rpx 32rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,52 @@
+
+.colorgroup{
+  display: flex;
+  display: -webkit-flex;
+  height:90rpx;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding:0 20rpx;
+}
+.bigball{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  width: 64rpx;
+  height:64rpx;
+  box-sizing: border-box;
+  margin: 0 24rpx;
+  flex-shrink: 0;
+  border: 2rpx solid;
+  border-radius: 50%;
+}
+.ball{
+  width:48rpx;
+  height:48rpx;
+  border-radius: 50%;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0s linear;
+}
+.active .ball::after{
+  display: block;
+  content:'';
+  width:32rpx;
+  height:32rpx;
+  background-image: url("/images/check.png");
+  background-position: center;
+  background-size: cover;
+}
+.whiteactive .ball::after{
+  background-image: url("/images/wcheck.png");
+}
+.active .ball{
+  transform: scale(1.5);
+  transition: transform 0.1s linear;
+}
+.active{
+  border:none;
+}

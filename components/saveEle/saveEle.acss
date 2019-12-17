@@ -1,0 +1,129 @@
+.se_wrap{
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  background-color: white;
+  box-sizing: border-box;
+  padding:112rpx 60rpx 35rpx;
+  position: relative;
+}
+.order2{
+  order:2
+}
+.se_del{
+  width:42rpx;
+  height:42rpx;
+  border:10rpx solid transparent;
+  position: absolute;
+  right:24rpx;
+  top:24rpx;
+}
+.se_savewaywrap{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  font-size: 26rpx;
+  color:#606266;
+  margin-bottom: 32rpx;
+}
+.se_waylist{
+  flex-shrink: 0;
+  width:192rpx;
+  height:192rpx;
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  border:4rpx solid transparent;
+  display: flex;
+  display: -webkit-flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #F5F7FA;
+}
+.se_img{
+  width:64rpx;
+  height:64rpx;
+  margin-bottom: 16rpx;
+  flex-shrink: 0;
+}
+.se_txt{
+  flex-basis: 100%;
+  text-align: center;
+}
+.activeway{
+  border-color:#4710ED;
+  background-color: white;
+  color:#4710ED;
+}
+.infowrap{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  font-size: 24rpx;
+  color:#303133;
+  white-space: nowrap;
+  height:40rpx;
+  line-height: 40rpx;
+}
+.se_zhuyi{
+  width:32rpx;
+  height:32rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.se_saveBtn{
+  width:100%;
+  height:88rpx;
+  border-radius: 12rpx;
+  background-color: #4710ED;
+  font-size: 34rpx;
+  color:white;
+  text-align: center;
+  line-height: 88rpx;
+  margin-top: 90rpx;
+  border:none;
+}
+.active_sebtn{
+  background-color: rgba(71, 16, 237, 0.6);
+}
+.tiquma{
+  border-top:2rpx solid #E5E5EA;
+  margin-top: 32rpx;
+  padding-top: 30rpx;
+  font-size: 28rpx;
+  color:#303133;
+}
+.tqmlist,.iptlist{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.iptlist{
+  margin-bottom: 13rpx;
+}
+.tqmlist:first-child{
+  margin-bottom: 26rpx;
+}
+.tmqval{
+  flex-shrink: 0;
+  font-size: 26rpx;
+}
+.seipt{
+  font-size: 26rpx;
+  color:#303133;
+  text-align: right;
+  flex-grow: 1;
+}
+.dettxt{
+  background-color: #F5F7FA;
+  font-size: 26rpx;
+  color:#303133;
+  line-height: 38rpx;
+  box-sizing: border-box;
+  padding:32rpx;
+  height:192rpx;
+}
+.emailbtn{
+  margin-top: 40rpx;
+}

@@ -1,0 +1,11 @@
+.colorwrap{
+  background-color: #F7F7F7;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  padding:54rpx 0;
+  box-shadow: 0 0 40rpx rgba(0,0,0,0.2);
+}
+.info{
+  font-size: 28rpx;
+  color:#303133;
+}

@@ -1,0 +1,43 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+>
+  <view class='customized-bg'>
+    <view a:if="{{params.width||params.height||params.max||params.min||params.ppi!=300}}" class='reset-button' onTap="reset"><image class='customized-icon' src="/components/autoSpec/imgs/reset.png"/>重置</view>
+    <view class='customized-title'>自定义规格</view>
+    <view class='customized-container'>
+      <view class='customized-text customized-text-word'>像素尺寸</view>
+      <view class='customized-input-container {{focusedInput=="0"?"focused-customized-input-container":""}}'>
+        <input enableNative="{{false}}" confirm-hold="{{true}}" type="{{isIos?'text':'number'}}" placeholder="宽" placeholder-class='customized-placeholder' class="customized-input" maxlength='4' data-index='0' onFocus='inputFocus' onInput='recordWidth' value="{{params.width}}"/>
+      </view> 
+      <view class='customized-text'>×</view>
+      <view class='customized-input-container {{focusedInput=="1"?"focused-customized-input-container":""}}'>
+        <input enableNative="{{false}}" type="{{isIos?'text':'number'}}" placeholder="高" placeholder-class='customized-placeholder' class="customized-input" maxlength='4' onFocus='inputFocus' data-index='1' onInput='recordHeight' value = "{{params.height}}" />
+      </view>
+      <view class='customized-text'>PX</view>
+    </view>
+    <view class='customized-container'>
+      <view class='customized-text customized-text-word'>文件大小</view>
+      <view class='customized-input-container {{focusedInput=="2"?"focused-customized-input-container":""}}'>
+        <input enableNative="{{false}}" type="{{isIos?'text':'number'}}" placeholder="最小" placeholder-class='customized-placeholder' class="customized-input" maxlength='4' onFocus='inputFocus' data-index='2' onInput='recordMin' value = "{{params.min}}"/>
+      </view>
+      <view class='customized-text'>~</view>
+      <view class='customized-input-container {{focusedInput=="3"?"focused-customized-input-container":""}}'>
+        <input enableNative="{{false}}" type="{{isIos?'text':'number'}}" placeholder="最大" placeholder-class='customized-placeholder' class="customized-input" maxlength='4' onFocus='inputFocus' data-index='3' onInput='recordMax' value = "{{params.max}}" />
+      </view>
+      <view class='customized-text'>KB</view>
+    </view>
+    <view class='customized-container'>
+      <view class='customized-text customized-text-word'>分辨率</view>
+      <view class='customized-input-container {{focusedInput=="4"?"focused-customized-input-container":""}}'>
+        <input enableNative="{{false}}" type="{{isIos?'text':'number'}}" placeholder="300" placeholder-class='customized-placeholder' class="customized-input" maxlength='4' onFocus='inputFocus' data-index='4' onInput='recordPPI' value = "{{params.ppi}}"/>
+      </view>
+      <view class='customized-text'>DPI</view>
+      <image class='customized-icon' src="/components/autoSpec/imgs/info.png" onTap="showDPI"/>
+    </view>
+  </view>
+  <duicuo onCancel="onCancel"
+          onOk="sumbit">
+    <view class="errorTip">{{errorTip}}</view>
+  </duicuo>
+</pop>

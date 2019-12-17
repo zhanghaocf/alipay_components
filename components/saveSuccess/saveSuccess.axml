@@ -1,0 +1,15 @@
+<view class="mask"
+      hidden="{{!showFlag}}"
+      disable-scroll="{{true}}">
+  <view class="ss_wrap">
+    <image mode="widthFix" src="/images/icon_del.png" class="ss_del" catchTap="closeSs"/>
+    <image mode="widthFix" src="/components/saveSuccess/img/success.png" class="successimg"/>
+    <view class="sstxt">证件照保存成功</view>
+    <view class="ssdesc">您的朋友肯定也着急拍证件照，觉得好用就分享给她吧~</view>
+    <view class="ss_shareway" hover-class="ssactiveBnt" hover-stay-time="100" hover-start-time="10">
+      <image mode="widthFix" src="/components/saveSuccess/img/share.png" class="ss_shareImg"/>
+      分享给朋友
+      <button class="sharebtn" type="primary" open-type="share">分享</button>
+    </view>
+  </view>
+</view>

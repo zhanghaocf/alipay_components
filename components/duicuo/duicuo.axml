@@ -1,0 +1,5 @@
+<view class="dc_opr">
+  <image catchTap="cancel" mode="widthFix" src="/components/duicuo/img/close.png" class="dc_check"/>
+  <slot></slot>
+  <image catchTap="go" mode="widthFix" src="/components/duicuo/img/check.png" class="dc_check"/>
+</view>

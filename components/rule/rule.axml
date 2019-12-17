@@ -1,0 +1,16 @@
+<import src="/templates/rule/rule.axml"/>
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+>
+  <view class="ruletp" style="height:{{ruleHeight}}px">
+    <view class="rtpdown" catchTap="onShowpop"></view>
+    <updata scrollViewHeight="{{scrollViewHeight}}"
+          isLoading="{{ruleTp.isLoading}}"
+          isFinish="{{ruleTp.isFinish}}"
+          scrolltoView="{{sv}}"
+          onGetList="onGetList"
+    > 
+      <template is="rule" data="{{...ruleTp,current,isIos}}"></template>
+    </updata>
+  </view>
+</pop>

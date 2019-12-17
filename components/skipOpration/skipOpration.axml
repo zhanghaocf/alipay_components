@@ -1,0 +1,23 @@
+<view class='iosover'>
+  <view class='skipwrap'
+        a:if="{{needSkip}}"
+        data-index="{{index}}"
+        style="height:{{skipHeight}}rpx;margin-bottom:{{margBo}}rpx;{{selectIndex===index?'transform:translateX('+tranX+'rpx);':transStyle}}{{selectIndex===index&&!isMove?transStyle:''}}"
+        onTouchStart='startTouch'
+        onTouchMove='moveTouch'
+        onTouchEnd='endTouch'
+  >
+    <view class='con'>
+      <slot></slot>
+    </view>
+    <view catchTap="delFn" data-index="{{index}}" hover-class='button-hover' hover-stay-time="100" class='operaBnt del'>删除</view>
+  </view>
+  <view a:else
+        class='skipwrap'
+        data-index="{{index}}"
+        style="height:{{skipHeight}}rpx;margin-bottom:{{margBo}}rpx;">
+    <view class='con'>
+      <slot></slot>
+    </view>
+  </view>
+</view>

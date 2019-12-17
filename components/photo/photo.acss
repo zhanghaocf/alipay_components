@@ -1,0 +1,37 @@
+.info{
+  width:702rpx;
+  height:556rpx;
+  display: block;
+  margin:0 auto 16rpx;
+}
+.opr{
+  width:702rpx;
+  margin:0 auto 16rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+  font-size: 34rpx;
+  color:#303133;
+}
+.takephoto{
+  height:104rpx;
+  line-height: 104rpx;
+}
+.takephoto:first-child{
+  border-bottom:2rpx solid rgba(25,31,37,0.08);
+}
+.activephoto{
+  opacity: 0.5;
+}
+.cancel{
+  height:104rpx;
+  line-height: 104rpx;
+  color:rgba(25,31,37,0.4);
+  font-size: 34rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  width:702rpx;
+  text-align: center;
+  margin: 0 auto 35rpx;
+}

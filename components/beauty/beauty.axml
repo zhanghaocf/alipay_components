@@ -1,0 +1,40 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     mask="{{false}}"
+>
+  <view class="slidewrap">
+    <view class="slidelist" a:for="{{meiyan[idx].val}}" a:key="en">
+      <view class="name">{{item.name}}</view>
+      <slider value="{{meiyanVal[item.en]}}"
+              min="0"
+              max="{{item.max}}"
+              background-color="#E3E9F5"
+              active-color="#4710ED"
+              track-size="{{4}}"
+              handle-size="{{22}}"
+              style="text-indent:22rpx"
+              data-name="{{item.en}}"
+              onChange="meiyanopr"
+              show-value/>
+    </view>
+  </view>
+  <view class="beautywrap">
+    <view class="bscroll-view_H">
+      <block  a:for="{{meiyan}}" a:key="id">
+        <view class="meiitem {{idx===index?'mactive':''}}" data-idx="{{index}}" catchTap="selmei">
+          <view class="meiwrap">
+            <image mode="widthFix" src="{{idx===index?item.asrc:item.src}}" class="meiimg"/>
+          </view>
+          <text class="{{idx===index?'mactiveColor':''}}">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <duicuo onCancel="onCancel"
+          onOk="onOk">
+    <view class="opgroup">
+      <view class="optxt {{!beautyFlag?'actbeauty':''}}" data-beauty="0" catchTap="isBeauty">关闭美颜</view>
+      <view class="optxt {{beautyFlag?'actbeauty':''}}" data-beauty="1" catchTap="isBeauty">基础美颜</view>
+    </view>
+  </duicuo>
+</pop>

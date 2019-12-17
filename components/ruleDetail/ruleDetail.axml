@@ -1,0 +1,52 @@
+<import-sjs name="m1" from="/utils/enum.sjs"/>
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+>
+  <view class="rd_ruletp">
+    <view class="rtpdown" catchTap="onShowpop"></view>
+    <image catchTap="returnrule" mode="widthFix" src="/images/icon_del.png" class="delpng"/>
+    <view class="name">{{name}}</view>
+    <view class="eleprint" hidden="{{!normal}}">
+      <image mode="widthFix" src="/components/ruleDetail/img/yes.png" class="yesno fs0" />
+      支持保存电子照
+      <image mode="widthFix" src="/components/ruleDetail/img/{{print===1?'yes':'no'}}.png" class="yesno fs0 ml" />
+      支持冲印
+    </view>
+    <view class="detailTitle" hidden="{{!normal}}">规格详情</view>
+    <view class="list">
+      <view class="key">冲印尺寸</view>
+      <view class="val">{{width_mm}} x {{height_mm}} mm</view>
+    </view>
+    <view class="list">
+      <view class="key">像素大小</view>
+      <view class="val">{{width_px}} x {{height_px}} px</view>
+    </view>
+    <view class="list">
+      <view class="key">分辨率</view>
+      <view class="val">{{ppi?ppi:300}}DPI</view>
+    </view>
+    <view class="list">
+      <view class="key">背景色</view>
+      <view class="colorwrap">
+        <view a:for="{{background_color}}"
+              a:key="color_name" 
+              class="color {{item.s_color==='ffffff'&&item.e_color==='ffffff'?'bg':''}}"
+              style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})"></view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="key">文件大小</view>
+      <view class="val">{{m1.showSize(file_size_min,file_size_max)}}</view>
+    </view>
+    <view class="list">
+      <view class="key">文件格式</view>
+      <view class="val">{{photo_format}}</view>
+    </view>
+    <view class="list">
+      <view class="key">其他要求</view>
+      <view class="val">{{remark?remark:'无要求'}}</view>
+    </view>
+    <view class="btn" catchTap="sureid" hover-class="activebtn" hover-start-time="10" hover-stay-time="100">确认使用该规格</view>
+  </view>
+</pop>

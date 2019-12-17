@@ -1,0 +1,14 @@
+
+<view class="colorgroup">
+  <view class="bigball {{coloridx===index?'active':''}} {{item.e_color==='ffffff'&&item.s_color==='ffffff'?'whiteactive':''}}"
+        a:for="{{color}}"
+        a:key="color_name"
+        style="borderColor:#{{item.e_color}}"
+        data-index="{{index}}"
+        catchTap="setidx">
+    <view 
+      class="ball"
+      style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})">
+    </view>
+  </view>
+</view>

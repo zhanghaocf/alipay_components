@@ -1,0 +1,16 @@
+.dc_opr{
+  display: flex;
+  display: -webkit-flex;
+  height:112rpx;
+  box-sizing: border-box;
+  padding: 0 64rpx;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+.dc_check{
+  width:48rpx;
+  height:48rpx;
+  flex-shrink: 0;
+  border:10rpx solid transparent;
+}

@@ -1,0 +1,15 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+     mask="{{false}}"
+>
+  <view class="colorwrap">
+    <colorsel color="{{color}}"
+              coloridx="{{coloridx}}"
+              onSetidx="onSetidx"></colorsel>
+  </view>
+  <duicuo onCancel="onCancel"
+          onOk="onOk">
+    <view class="info">选择底色</view>
+  </duicuo>
+</pop>

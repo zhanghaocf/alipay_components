@@ -1,0 +1,89 @@
+.mask{
+  position: fixed;
+  z-index: 1;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.28);
+  left:0;
+  top:0;
+}
+.ss_wrap{
+  width:560rpx;
+  height:672rpx;
+  border-radius: 16rpx;
+  background-color: white;
+  box-sizing: border-box;
+  padding:80rpx 40rpx 0;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  transform: -webkit-translate(-50%,-50%);
+}
+.ss_del{
+  width:28rpx;
+  height:28rpx;
+  border:10rpx solid transparent;
+  position: absolute;
+  right:12rpx;
+  top:12rpx;
+}
+.successimg{
+  width:144rpx;
+  height:144rpx;
+  display: block;
+  margin:0 auto 48rpx;
+}
+.sstxt{
+  text-align: center;
+  font-size: 34rpx;
+  color:#2A292E;
+}
+.sstxt::after{
+  display: block;
+  content:'';
+  width:48rpx;
+  height:4rpx;
+  background-color:#EFF1FB;
+  margin:24rpx auto;
+}
+.ssdesc{
+  font-size: 26rpx;
+  color:rgba(42, 41, 46, 0.6);
+  width:370rpx;
+  word-break: break-all;
+  text-align: center;
+  line-height: 36rpx;
+  margin:0 auto 64rpx;
+}
+.ss_shareway{
+  width:306rpx;
+  height:80prx;
+  text-align:center;
+  height:80rpx;
+  line-height: 80rpx;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  border:2rpx solid #E5E5EA;
+  font-size: 26rpx;
+  color:#303133;
+  margin:0 auto;
+  position:relative;
+}
+.sharebtn{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+}
+.ss_shareImg{
+  width:32rpx;
+  height:32rpx;
+  vertical-align: middle;
+  margin-right: 16rpx;
+}
+.ssactiveBnt{
+  background-color: #E5E5EA;
+}

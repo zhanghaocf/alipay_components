@@ -1,0 +1,119 @@
+.saveBgwrap{
+  position:relative;
+  background-color: #FFFFFF;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  box-sizing: border-box;
+  padding:66rpx 40rpx 35rpx;
+}
+.sb_del{
+ width:42rpx;
+ height:42rpx;
+ border:12rpx solid transparent;
+ position: absolute;
+ right:10rpx;
+ top:10rpx; 
+}
+.sb_title{
+  font-size: 32rpx;
+  color:#303133;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+.sb_group{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #E5E5EA;
+  padding-bottom: 32rpx;
+  margin-bottom: 32rpx;
+}
+.sb_colorwrap{
+  width:478rpx;
+  height:80rpx;
+  border-radius: 16rpx;
+  background-color: #F5F7FA;
+  font-size: 24rpx;
+  color:#303133;
+  flex-shrink: 0;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding:0 34rpx;
+  white-space: nowrap;
+}
+.ml54{
+  margin-left: 54rpx;
+}
+.sb_ball{
+  flex-shrink: 0;
+  width:24rpx;
+  height:24rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+}
+.sb_price{
+  flex-shrink: 0;
+  font-size: 32rpx;
+  color:#FF5555;
+  width:160rpx;
+  height:80rpx;
+  border-radius: 16rpx;
+  background-color: #F5F7FA;
+  text-align: center;
+  line-height: 80rpx;
+}
+.sb_service{
+  font-size: 26rpx;
+  color:#303133;
+  margin-bottom: 38rpx;
+}
+.sb_all{
+  font-size: 24rpx;
+  color:#2A292E;
+  position: relative;
+  background-color: #F5F7FA;
+  width:328rpx;
+  height:80rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border:2rpx solid transparent;
+}
+.xuanzepng{
+  width:160rpx;
+  height:36rpx;
+  position: absolute;
+  top:-26rpx;
+  left:116rpx;
+}
+.sb_money{
+  border-left: 2rpx solid #E5E5EA;
+  display: inline-block;
+  padding-left: 28rpx;
+  line-height: 24rpx;
+  margin-left: 28rpx;
+  font-weight: bold;
+}
+.sb_cutbtn{
+  font-size: 34rpx;
+  color:white;
+  width:686rpx;
+  height:88rpx;
+  border-radius: 12rpx;
+  background-color: #4710ED;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 64rpx auto 0;
+}
+.sb_activeBtn{
+  background-color: rgba(71,16,237,0.5);
+}
+.activeService{
+  border:2rpx solid #4710ED;
+  background-color: rgba(71, 16, 237, 0.05);
+  color:#4710ED;
+}

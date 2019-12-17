@@ -1,0 +1,130 @@
+.cont{
+  background-color: white;
+  padding: 102rpx 48rpx 35rpx;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  position:relative;
+  overflow: hidden;
+}
+.close{
+  width:42rpx;
+  height:42rpx;
+  border:10rpx solid transparent;
+  position: absolute;
+  right:32rpx;
+  top:32rpx;
+}
+.pimgurlwrap{
+  width:176rpx;
+  height:246rpx;
+  float: left;
+  margin-right: 48rpx;
+}
+.pimgurl{
+  width:100%;
+  height:100%;
+}
+.infogroup{
+  overflow: hidden;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  height:246rpx;
+}
+.specname{
+  flex-basis: 100%;
+  font-size: 32rpx;
+  color:#303133;
+  margin-bottom: 12rpx;
+}
+.info{
+  flex-basis: 100%;
+  font-size: 24rpx;
+  color:rgba(48, 49, 51, 0.4);
+  word-break: break-all;
+  margin-bottom: 32rpx;
+}
+.yixuan{
+  padding:0 24rpx;
+  border-radius: 16rpx;
+  background-color: #F5F7FA;
+  display: flex;
+  display: -webkit-flex;
+  height:64rpx;
+  align-items: center;
+  font-size: 24rpx;
+  color:#303133;
+}
+.coritem:first-child{
+  margin-left: 32rpx;
+}
+.coritem{
+  width:24rpx;
+  height:24rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.price{
+  flex-basis: 100%;
+  align-self: flex-end;
+  font-size: 32rpx;
+  color:#FF5555;
+}
+.kexuan{
+  font-size: 26rpx;
+  color:#303133;
+  border-top:2rpx solid #E5E5EA;
+  margin: 48rpx 0 38rpx;
+  padding-top: 32rpx;
+}
+.servicegroup{
+  display: flex;
+  display: -webkit-flex;
+}
+.seritem{
+  width:313rpx;
+  height:80rpx;
+  border-radius: 12rpx;
+  background-color: #F5F7FA;
+  text-align: center;
+  line-height: 80rpx;
+  color:#2A292E;
+  font-size: 24rpx;
+  position:relative;
+  box-sizing: border-box;
+  border:2rpx solid transparent;
+}
+.xz{
+  width:160rpx;
+  height:36rpx;
+  position:absolute;
+  top:-30rpx;
+  right:52rpx;
+}
+.seritem:first-child{
+  margin-right: 30rpx;
+}
+.pricetxt{
+  padding-left: 28rpx;
+  border-left: 2rpx solid #E5E5EA;
+  margin-left: 28rpx;
+}
+.paybtn{
+  width:686rpx;
+  height:96rpx;
+  border-radius: 12rpx;
+  background-color: #4710ED;
+  font-size: 34rpx;
+  color:white;
+  text-align: center;
+  line-height: 96rpx;
+  margin:64rpx auto 0;
+}
+.activeBtn{
+  background-color: rgba(71, 16, 237, 0.6);
+}
+.activeservice{
+  border:2rpx solid #4710ED;
+  background-color: rgba(71, 16, 237, 0.05);
+  color:#4710ED;
+}

@@ -1,0 +1,28 @@
+<import-sjs name="m1" from="/utils/enum.sjs" />
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+>
+ <view class="saveBgwrap">
+   <image catchTap="onShowpop" mode="widthFix" src="/images/icon_del.png" class="sb_del"/>
+   <view class="sb_title">保存选定底色电子照</view>
+   <view class="sb_group">
+     <view class="sb_colorwrap">
+       已选底色
+       <view class="sb_ball {{(allbg&&index===0)||(!allbg&&coloridx===index)?'ml54':''}}"
+             a:for="{{color}}"
+             a:key="color_name"
+             hidden="{{!allbg && coloridx!==index}}"
+             style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})"></view>
+     </view>
+     <view class="sb_price">￥{{m1.yuan(basicprice)}}</view>
+   </view>
+   <view class="sb_service">可选服务</view>
+   <view a:if="{{color.length>1}}" class="sb_all {{allbg?'activeService':''}}" catchTap="allone">
+     保存{{color.length}}种底色
+     <text class="sb_money">￥{{m1.yuan(multiprice)}}</text>
+     <image mode="widthFix" src="/components/saveBg/imgs/xuanze.png" class="xuanzepng" />
+   </view>
+   <view class="sb_cutbtn" catchTap="cut" hover-class="sb_activeBtn" hover-start-time="50" hover-stay-time="100">支付 {{m1.yuan(allbg?multiprice+basicprice:basicprice)}}元 保存电子照</view>
+ </view> 
+</pop>

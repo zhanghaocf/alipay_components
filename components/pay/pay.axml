@@ -1,0 +1,49 @@
+<pop showFlag="{{showFlag}}"
+     onShowpop="onClose">
+  <view class="cont">
+    <image catchTap="onClose" mode="widthFix" src="/images/icon_del.png" class="close"/>
+    <view class="pimgurlwrap" style="backgroundImage:linear-gradient(to bottom,#{{allColor[coloridx].s_color}},#{{allColor[coloridx].e_color}})">
+      <image mode="aspectFill" src="{{imgurl}}" class="pimgurl"/>
+    </view>
+    <view class="infogroup">
+      <view class="specname oneline">{{specName}}</view>
+      <view class="info">包含「单张电子照」{{canprint?'和「排版照」':''}}</view>
+      <view class="yixuan">
+        已选底色
+        <view a:if="{{paytype==='ele'}}"
+              a:for="{{chooseColor}}"
+              a:key="color_name"
+              class="coritem"
+              style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})">
+        </view>
+        <view a:if="{{paytype!=='ele'}}"
+              a:for="{{[allColor[coloridx]]}}"
+              a:key="color_name"
+              class="coritem"
+              style="backgroundImage:linear-gradient(to bottom,#{{item.s_color}},#{{item.e_color}})">
+        </view>
+      </view>
+      <view class="price" a:if="{{paytype==='ele'}}">￥{{price['1']}}</view>
+    </view>
+    <view class="kexuan">
+      可选服务
+    </view>
+    <view class="servicegroup">
+      <view class="seritem {{(selVal&2)===2?'activeservice':''}}" data-val="2" catchTap="buy">
+        个性换正装<text class="pricetxt">￥{{price['2']}}</text>
+      </view>
+      <view class="seritem {{(selVal&4)===4?'activeservice':''}}" a:if="{{allColor.length>1&&paytype==='ele'}}" data-val="4" catchTap="buy">
+        保存{{allColor.length}}种底色<text class="pricetxt">￥{{price['4']}}</text>
+        <image mode="widthFix" src="/components/pay/img/xuanze.png" class="xz"/>
+      </view>
+    </view>
+    <view class="paybtn"
+          hover-class="activeBtn"
+          hover-start-time="10"
+          hover-stay-time="100"
+          catchTap="gopay">
+      <text a:if="{{paytype==='ele'}}">支付 {{price[selVal.toString()]}}元 保存电子照</text>
+      <text a:if="{{paytype!=='ele'}}">提交冲印</text>
+    </view>
+  </view>
+</pop>

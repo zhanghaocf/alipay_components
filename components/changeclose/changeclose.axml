@@ -1,0 +1,33 @@
+<import-sjs name="m1" from="/utils/enum.sjs" />
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     mask="{{false}}"
+>
+  <view class="closewrap">
+    <scroll-view class="scroll-view_H" scroll-x="{{true}}" >
+      <view class="closeitem {{chooseKey===''?'activeclose':''}}"
+            data-key=""
+            catchTap="choosekey">
+        <image mode="aspectFill" src="/components/changeclose/img/noclose.png" class="itemimg"/>
+        <view class="itemname">无正装</view>
+      </view>
+      <view class="closeitem {{chooseKey===item.key?'activeclose':''}}"
+            a:for="{{closes[typename]}}"
+            a:key="key"
+            data-key="{{item.key}}"
+            catchTap="choosekey">
+        <image mode="aspectFill" src="{{item.value}}" class="itemimg" default-source="/components/changeclose/img/default.png"/>
+        <view class="itemname">{{m1.getName(typename)}}{{index+1}}</view>
+      </view>
+      <view class="w16"></view>
+    </scroll-view>
+  </view>
+  <duicuo onCancel="onCancel"
+          onOk="onOk">
+    <view class="typegroup">
+      <view class="zhuang {{typename==='girl'?'activeType':''}}" data-type="girl" catchTap="checktype">女装</view>
+      <view class="zhuang {{typename==='kid'?'activeType':''}}" data-type="kid" catchTap="checktype">童装</view>
+      <view class="zhuang {{typename==='boy'?'activeType':''}}" data-type="boy" catchTap="checktype">男装</view>
+    </view>
+  </duicuo>
+</pop>

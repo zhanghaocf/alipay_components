@@ -1,0 +1,6 @@
+<!-- 小程序收藏组件，更多高级用法请参考文档：https://docs.alipay.com/mini/component/component-favorite -->
+<button catchTap="open">开启</button>
+<seltime showFlag="{{showFlag}}"
+         onShowpop="onShowpop"
+         startData="2019-12-11"
+         selDate="2020-02-01"></seltime>

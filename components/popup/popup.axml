@@ -1,0 +1,5 @@
+<view class='etcMask {{showFlag?"opacity1":""}} {{!mask?"maskfalse":""}}' disable-scroll="{{preventscroll}}" catchTap='closeFlag'>
+  <view class='wrap {{showFlag?"wrapshow":""}}' catchTap='rf'>
+    <slot></slot>
+  </view>
+</view>
