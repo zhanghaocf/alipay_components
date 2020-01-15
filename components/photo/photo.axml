@@ -2,7 +2,7 @@
      onShowpop="onShowpop"
      preventscroll="{{true}}"
 >
-  <image mode="widthFix" src="/components/photo/img/info.png" class="info" />
+  <image mode="widthFix" src="/components/photo/img/info.png" class="p_info" />
   <view class="opr">
     <view class="takephoto" data-type="camera" catchTap="takephoto" hover-class="activephoto" hover-start-time="100" hover-stay-time="50">拍摄</view>
     <view class="takephoto" data-type="album" catchTap="takephoto" hover-class="activephoto" hover-start-time="100" hover-stay-time="50">从相册中选取</view>

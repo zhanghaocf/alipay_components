@@ -2,7 +2,7 @@ let moment = require("./utils/moment.js");
 Component({
   props:{
     showFlag:false,
-    maxDay:60,
+    maxDay:59,//如果当天也算一天的话那就59代表60天
     startData:"",
     selDate:"",
     onShowpop:()=>{},
@@ -34,6 +34,7 @@ Component({
       let nowtime = startData?moment(startData):moment()
       let endTime = startData?moment(startData):moment()
       endTime = endTime.add(maxDay,"days")
+      console.log("结束时间",endTime)
       let selTime = selDate?moment(selDate):nowtime
       let [selyear,selmonth,selday] = [selTime.year(),selTime.month()+1,selTime.date()]
       years=this.pushData(nowtime.year(),endTime.year())
@@ -48,6 +49,7 @@ Component({
       })
     },
     onShowpop(){
+      this.initResult()
       this.props.onShowpop()
     },
     onChange(e){
@@ -55,6 +57,7 @@ Component({
       let {value} = e.detail
       let {result} = this.data
       let idx = this.getdiffIdx(value,result)
+      console.log(idx)
       if(idx===0){
         value[1]=0
         value[2]=0
@@ -74,8 +77,10 @@ Component({
       let obj={
         "0":()=>{
           let monthval = this.setYears(year)
+          let day = this.setMonths(year,monthval[result[1]])
           this.setData({
-            months:monthval
+            months:monthval,
+            days:day
           })
         },
         "1":()=>{
@@ -96,8 +101,9 @@ Component({
     },
     setYears(year){
       let {startData,maxDay} = this.props
-      let endTime = moment().add(maxDay,"days")
       let nowtime = startData?moment(startData):moment()
+      let endTime = startData?moment(startData):moment()
+      endTime = endTime.add(maxDay,"days")
       let arr=[]
       if(nowtime.year()===endTime.year()){
         arr=this.pushData(nowtime.month()+1,endTime.month()+1)
@@ -112,8 +118,10 @@ Component({
     },
     setMonths(year,month){
       let {startData,maxDay} = this.props
-      let endTime = moment().add(maxDay,"days")
       let nowtime = startData?moment(startData):moment()
+      let endTime = startData?moment(startData):moment()
+      endTime = endTime.add(maxDay,"days")
+      console.log("时间都去哪儿了",endTime)
       let arr=[]
       if(nowtime.year()===endTime.year()&&nowtime.month()===endTime.month()){
         arr = this.pushData(nowtime.date(),endTime.date())

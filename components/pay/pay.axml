@@ -7,7 +7,7 @@
     </view>
     <view class="infogroup">
       <view class="specname oneline">{{specName}}</view>
-      <view class="info">包含「单张电子照」{{canprint?'和「排版照」':''}}</view>
+      <view class="payinfo">包含「单张电子照」{{canprint?'和「排版照」':''}}</view>
       <view class="yixuan">
         已选底色
         <view a:if="{{paytype==='ele'}}"

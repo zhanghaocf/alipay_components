@@ -1,4 +1,4 @@
-.info{
+.p_info{
   width:702rpx;
   height:556rpx;
   display: block;

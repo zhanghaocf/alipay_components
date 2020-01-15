@@ -1,0 +1,27 @@
+<form onSubmit="modifyinfo">
+<view class="tqmask" catchTap="closewrap">
+  <view class="tqwrap" catchTap="tqrf">
+    <view class="tqtitle oneline">{{team.project_name}}</view>
+    <view class="tqdesc">
+      {{team.spec_name}}
+      <text class="tqclr">{{team.color_china}}</text>
+    </view>
+    <block a:if="{{team.extra_information.length>0}}">
+      <view class="tqwsxi">完善信息</view>
+      <view class="tqiptlist" a:for="{{team.extra_information}}" a:key="{{index}}">
+        <block a:if="{{!modifyBol}}">
+          <input a:if="{{isIos}}" enableNative="{{false}}" data-idx="{{index}}" onInput="bmteam" class="tqipt" placeholder="输入{{item}}" />
+          <input a:if="{{!isIos}}" class="tqipt" data-idx="{{index}}" onInput="bmteam" placeholder="输入{{item}}" />
+        </block>
+        <block a:if="{{modifyBol}}">
+          <input a:if="{{isIos}}" name="{{item}}" value="{{team.information[item]}}" enableNative="{{false}}" data-idx="{{index}}" class="tqipt" placeholder="输入{{item}}" />
+          <input a:if="{{!isIos}}" name="{{item}}" value="{{team.information[item]}}" class="tqipt" data-idx="{{index}}" placeholder="输入{{item}}" />
+        </block>
+      </view>
+    </block>
+    <button a:if="{{!modifyBol}}" catchTap="gophoto" class="tqphoto {{noops&&team.extra_information.length>0?'tqnobtn':''}}">去拍摄</button>
+    <button a:if="{{modifyBol}}" form-type="submit" class="tqphoto">确定</button>
+    <view class="tqtime">截止日期：{{team.end_time}}</view>
+  </view>
+</view>
+</form>

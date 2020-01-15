@@ -1,5 +1,5 @@
 
-<view class="colorgroup">
+<view class="colorgroup {{isleft?'colorflexleft':''}}">
   <view class="bigball {{coloridx===index?'active':''}} {{item.e_color==='ffffff'&&item.s_color==='ffffff'?'whiteactive':''}}"
         a:for="{{color}}"
         a:key="color_name"

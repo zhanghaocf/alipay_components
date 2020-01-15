@@ -1,10 +1,43 @@
 Page({
   data:{
-    showFlag:true
+    showFlag:true,
+    list:[],
+    list1:[]
+  },
+  ya(){
+    let {list} = this.data
+    list.push(0)
+    console.time("ya")
+    this.setData({
+      list
+    },()=>{
+      console.timeEnd("ya")
+    })
+  },
+  ya1(){
+    let {list} = this.data
+    console.time("ya1")
+    this.setData({
+      "list1[1001]":0
+    },()=>{
+      console.timeEnd("ya1")
+    })
   },
   onLoad(query) {
-    // 页面加载
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    let {list,list1}=this.data
+    list=this.la1000(list)
+    list1=this.la1000(list1)
+    console.log(list.length)
+    // this.setData({
+    //   list,
+    //   list1
+    // })
+  },
+  la1000(arr){
+    for(let i=0;i<1000;i++){
+      arr.push(i)
+    }
+    return arr
   },
   open(){
     this.setData({

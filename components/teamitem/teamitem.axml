@@ -1,0 +1,54 @@
+<import-sjs name="m1" from="/utils/enum.sjs"/>
+<view class="tiwrap" data-state="{{m1.teamState(info.end_time)}}" style="margin-bottom:{{mb}}rpx" catchTap="enterdetail">
+  <view class="tistate" style="background-color:{{m1.teamStatebg(info.end_time,info.is_back)}}">{{m1.teamState(info.end_time,info.is_back)}}</view>
+  <view class="tiname oneline">{{info.project_name}}</view>
+  <!-- <text class="tiball" style="background-image:linear-gradient(to bottom,#{{info.backgroundcolor[0].s_color}},#{{info.backgroundcolor[0].e_color}})"></text> -->
+  <view class="tirule"><text class="tiruletxt">规格：{{info.spec_name}}</text>{{info.color_china}}</view>
+  <view class="tino" a:if="{{type==='owner'}}">编号：{{info.project_no}}<text class="ticopy" catchTap="ticopyFn">（复制）</text></view>
+  <view class="tino" a:if="{{type==='joiner'&&info.order_id}}">订单号：{{info.order_id}}<text class="ticopy" catchTap="odcopyFn">（复制）</text></view>
+  <block a:if="{{type==='owner'}}">
+    <view class="tiinfo">
+      <image mode="aspectFit" class="tipeo" src="/images/collect/people.png"></image>
+      {{info.actual_quantity}}/{{info.total_quantity}}
+      <view class="titime">截止日期：{{info.end_time}}</view>
+    </view>
+    <view class="tibtngroup">
+      <button class="tibtn buttonti" catchTap="godown">批量下载</button>
+      <block a:if="{{m1.teamState(info.end_time)==='进行中'&&info.is_visible===0}}">
+        <button class="tibtn buttonti" catchTap="saveewm">保存二维码</button>
+        <button class="tibtn buttonti"
+                open-type="share"
+                catchTap="shareinfo">直接分享</button>
+      </block>
+      <block a:if="{{m1.teamState(info.end_time)==='进行中'&&info.is_visible===1&&info.actual_quantity<info.total_quantity}}">
+        <button class="tibtn buttonti" catchTap="ownerphoto">拍摄证件照</button>
+      </block>
+    </view>
+  </block>
+  <block a:if="{{type==='joiner'}}">
+    <view class="tijoin">
+      <view class="tijointime">截止日期：{{info.end_time}}</view>
+      <block a:if="{{info.is_order===1}}">
+        <view class="tibtn"
+              hover-class="tiactivebg"
+              hover-stay-time="50"
+              hover-start-time="10"
+              catchTap="gopreview">下载证件照</view>
+        <block a:if="{{info.is_back===1&&m1.teamState(info.end_time)!=='已结束'}}">
+          <view class="tibtn"
+              hover-class="tiactivebg"
+              hover-stay-time="50"
+              hover-start-time="10"
+              catchTap="rephoto">重新拍摄</view>
+        </block>
+      </block>
+      <block a:if="{{info.is_order===0&&m1.teamState(info.end_time,info.is_back)==='进行中'}}">
+        <view class="tibtn"
+              hover-class="tiactivebg"
+              hover-stay-time="50"
+              hover-start-time="10"
+              catchTap="pszjz">拍摄证件照</view>
+      </block>
+    </view>
+  </block>
+</view>

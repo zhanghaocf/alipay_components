@@ -2,6 +2,7 @@ Component({
   props:{
     color:[],
     coloridx:0,
+    isleft:false,
     onSetidx:()=>{}//设置颜色索引
   },
   methods:{

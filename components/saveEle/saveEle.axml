@@ -5,7 +5,7 @@
   <view class="se_wrap">
     <image mode="widthFix" src="/images/icon_del.png" class="se_del" catchTap="onShowpop"/>
     <view class="se_savewaywrap">
-      <view class="se_waylist {{wayidx===0?'activeway':''}} {{isIos?'order2':''}}"
+      <view a:if="{{savephoto}}" class="se_waylist {{wayidx===0?'activeway':''}} {{isIos?'order2':''}}"
             data-idx="0"
             catchTap="selway">
         <image mode="widthFix" src="/components/saveEle/img/{{wayidx===0?'a_phone':'phone'}}.png" class="se_img"/>

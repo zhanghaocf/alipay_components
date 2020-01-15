@@ -1,5 +1,4 @@
 const config = getApp().globalData;
-import robottp from "/templates/searchrule/index.js";
 import {getSpecDetail} from "/utils/model.js";
 Component({
   props: {
@@ -10,7 +9,7 @@ Component({
     onSureid:()=>{}
   },
   didMount(){
-    config.event.on('openRuleDetailwrap',this.openme,this)
+    config.event.on('openActiwrap',this.openme,this)
   },
   data:{
     name:'',
@@ -26,6 +25,7 @@ Component({
     photo_format:"jpg",
     remark:'',
     spec_id:0,
+    colorIdx:0,
     returnRule:true //判断点击×是否返回规格列表还是直接首页
   },
   methods:{
@@ -43,18 +43,24 @@ Component({
           return {
             start_color: item.start_color,
             enc_color: item.enc_color,
-            s_color: item.start_color.toString(16).padStart(6,0),
-            e_color: item.enc_color.toString(16).padStart(6,0),
+            s_color: item.start_color.toString(16),
+            e_color: item.enc_color.toString(16),
             color_name: item.color_name,
           }
         })
         obj.background_color=color
         obj.returnRule=returnRule
+        obj.colorIdx=0
         this.setData(obj)
       })
     },
     onShowpop(){
       this.props.onControlRule()
+    },
+    onSetidx(idx){
+      this.setData({
+        colorIdx:idx
+      })
     },
     returnrule(){
       if(this.data.returnRule){
@@ -78,7 +84,7 @@ Component({
         background_color:dt.background_color,
         print:dt.print,
         specName:dt.name,
-        coloridx:0,
+        coloridx:dt.colorIdx,
         file_size_min:dt.file_size_min,
         file_size_max:dt.file_size_max,
         ppi:dt.ppi,

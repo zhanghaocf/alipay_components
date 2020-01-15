@@ -37,7 +37,7 @@
   color:#303133;
   margin-bottom: 12rpx;
 }
-.info{
+.payinfo{
   flex-basis: 100%;
   font-size: 24rpx;
   color:rgba(48, 49, 51, 0.4);

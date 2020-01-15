@@ -1,6 +1,6 @@
 const app = getApp()
 let config = app.globalData
-import {createOrder,getpay} from "/utils/model.js";
+import {createOrder,getpay,collectPayM,getCollectPayM} from "/utils/model.js";
 import {savephone} from "/utils/api.js";//为了不统一处理异常
 import {saveAllimg} from "/utils/utils.js";
 Component({
@@ -10,6 +10,7 @@ Component({
     onClosePay:()=>{},//关闭弹窗
     imgurl:'',
     specName:'',
+    project_no:'',//判断是否是收集照片功能
     canprint:true,
     chooseColor:[],
     price:{},
@@ -17,7 +18,8 @@ Component({
     chooseKey:'',
     onChooseAll:()=>{}, //选所有背景
     onChooseClose:()=>{}, //选正装
-    onLoadingTxt:()=>{} //是否显示loading
+    onLoadingTxt:()=>{}, //是否显示loading
+    onGetjoindetail:()=>{} //参与者支付完图片刷新当前页面数据
   },
   data:{
     selVal:5, //1为基础价个2为换正装价格3为基础加换正装价格4为多背景价格5为基础加多背景价格7为基础加正装加多背景价格
@@ -145,7 +147,8 @@ Component({
         url:'/pages/orderdetail/orderdetail?orderid='+this.data.orderid
       });
     },
-    elepay(){
+    nomalElePay(){
+      //正常流程支付
       let sys = my.getSystemInfoSync();
       let modeAction={
         "true":()=>{
@@ -180,6 +183,104 @@ Component({
           this.iosAction()
         },1000)
       })
+    },
+    coanzhuoAction(){
+      this.props.onLoadingTxt("保存图片中")
+      savephone(this.data.orderid,1).then(res=>{
+        console.log(res)
+        let {final_pic_name,print_pic_name} = res.result
+        return saveAllimg([...final_pic_name,...print_pic_name])
+      }).then(res=>{
+        this.props.onLoadingTxt("")
+        my.alert({
+          title:'保存成功',
+          content:'图片已保存进您的系统相册中',
+          buttonText: '我知道啦'
+        })
+        this.coiosAction()
+      }).catch(err=>{
+        this.props.onLoadingTxt("")
+        console.log(err)
+      })
+    },
+    coiosAction(){
+      let {is_visible} = config.makePhotoInfo
+      let fnname = is_visible===1?this.ownerpayHandle:this.joinpayHandle
+      fnname.call(this)
+      //跳转订单详情页
+      my.showToast({
+        type:'success',
+        content:'已发送至审核者'
+      })
+    },
+    joinpayHandle(){
+      let {project_no} = this.props
+      //参与者支付完的操作
+      config.event.emit("jointeam",project_no)
+      this.props.onGetjoindetail()
+    },
+    ownerpayHandle(){
+      let {project_no} = this.props
+      //创建者不可见活动支付完的操作
+      config.event.emit("actualnum",project_no)
+      // let {actual_quantity,
+      //     project_name,
+      //     total_quantity,
+      //     is_visible,
+      //     create_time,
+      //     extract_code,
+      //     end_time,
+      //     idx} = config.makePhotoInfo
+      // actual_quantity++
+      // config.makePhotoInfo.actual_quantity=actual_quantity
+      // let info =JSON.stringify({actual_quantity,
+      //     project_name,
+      //     total_quantity,
+      //     is_visible,
+      //     project_no,
+      //     create_time,
+      //     extract_code,
+      //     end_time})
+      // let url = `/pages/teamdetail/teamdetail?idx=${idx}&info=${info}`
+      // console.log("跳转路径啦",url)
+      setTimeout(()=>{
+        my.navigateBack({
+          delta:2
+        });
+      },1500)
+    },
+    payFn(){
+      let {isIos} = config
+      let fnname = isIos?this.coiosAction:this.coanzhuoAction
+      fnname.call(this)
+    },
+    collectpay(){
+      let {chooseKey} = this.props
+      this.props.onClosePay()
+      collectPayM(chooseKey).then(res=>{
+        // getCollectPayM
+        console.log(res)
+        let {order_id,is_pay} = res
+        this.data.orderid=order_id
+        if(is_pay===0){
+          console.log("haha,no money")
+          this.payFn()
+          return
+        }
+        getCollectPayM(order_id).then(res=>{
+          let {trade_no} = res
+          this.tradePay(trade_no).then(res=>{
+            let {isIos} = config
+            let fnname = isIos?this.coiosAction:this.coanzhuoAction
+            fnname.call(this)
+          })
+        })
+      })
+    },
+    elepay(){
+      let {project_no} = this.props
+      let fnname = project_no?this.collectpay:this.nomalElePay
+      fnname.call(this)
     },
     goprint(){
       my.navigateTo({

@@ -35,6 +35,7 @@
       <view class='customized-text'>DPI</view>
       <image class='customized-icon' src="/components/autoSpec/imgs/info.png" onTap="showDPI"/>
     </view>
+    <slot></slot>
   </view>
   <duicuo onCancel="onCancel"
           onOk="sumbit">

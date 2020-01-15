@@ -1,12 +1,15 @@
 import {saveAllimg,iosSaveImg} from "/utils/utils.js";
-import {sendEmail,testscan} from "/utils/model.js";
+import {sendEmail,testscan,ownerEmail} from "/utils/model.js";
 let app = getApp()
 Component({
   props:{
     showFlag:false,
     printName:[],
     finalName:[],
+    isCollect:false,
+    isVisible:false,
     orderid:'',
+    savephoto:true,
     downurl:'www.id-photo-verify.com/t',
     extract_str:'',
     onCloseEleSave:()=>{},//关闭保存图片窗口
@@ -22,7 +25,8 @@ Component({
   },
   didMount(){
     let isIos = app.globalData.isIos
-    let wayidx = isIos?1:0
+    let {extract_str,savephoto} = this.props
+    let wayidx = !isIos&&savephoto?0:extract_str?1:2
     this.setData({
       isIos,
       wayidx
@@ -65,6 +69,7 @@ Component({
     },
     onSubmit(e){
       let {detail,email,filename,theme} = e.detail.value
+      let {isCollect,isVisible} = this.props
       var reg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
       if(email===undefined || email === ''){
         app.alertMsg("请输入邮箱")
@@ -77,7 +82,9 @@ Component({
           throw "您输入的信息有敏感词汇"
         }
         let data={
-          order_id:this.props.orderid,
+          ...isCollect&&{type:1},
+          ...!isVisible&&{order_id:this.props.orderid},
+          ...isVisible&&{project_no:this.props.orderid},
           email,
           ...filename&&{
             file_name:filename
@@ -89,7 +96,8 @@ Component({
             content:detail
           }
         }
-        return sendEmail(data)
+        let fnname = isVisible?ownerEmail:sendEmail
+        return fnname.call(this,data)
       }).then(res=>{
         let {result} = res
         this.setData({
@@ -136,7 +144,7 @@ Component({
       let {printName,finalName}=this.props
       let {isIos} = app.globalData
       let funcname = iosSaveImg
-      console.log(funcname)
+      console.log(printName,finalName)
       let pages = getCurrentPages()
       let len = pages.length
       let page = pages[len-1]

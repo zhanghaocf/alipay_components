@@ -29,8 +29,8 @@ Component({
         let color = total_background_color.map(item=>{
           return {
             ...item,
-            s_color:item.start_color.toString(16),
-            e_color:item.enc_color.toString(16)
+            s_color:item.start_color.toString(16).padStart(6,0),
+            e_color:item.enc_color.toString(16).padStart(6,0)
           }
         })
         if(choice_color_index>0){

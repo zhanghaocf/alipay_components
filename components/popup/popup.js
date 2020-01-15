@@ -1,5 +1,6 @@
 let app = getApp();
 let config = app.globalData;
+let { baseUrl } = config;
 Component({
   props: {
     preventscroll:false,

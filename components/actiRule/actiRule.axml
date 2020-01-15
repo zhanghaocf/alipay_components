@@ -1,0 +1,38 @@
+<import-sjs name="m1" from="/utils/enum.sjs"/>
+<pop showFlag="{{showFlag}}"
+     onShowpop="onShowpop"
+     preventscroll="{{true}}"
+>
+  <view class="rd_ruletp">
+    <image catchTap="returnrule" mode="widthFix" src="/images/icon_del.png" class="delpng"/>
+    <view class="name">{{name}}</view>
+    <view class="actilistwrap">
+      <view class="list">
+        <view class="key">像素大小</view>
+        <view class="val">{{width_px}} x {{height_px}} px</view>
+      </view>
+      <view class="list">
+        <view class="key">分辨率</view>
+        <view class="val">{{ppi?ppi:300}}DPI</view>
+      </view>
+      <view class="list">
+        <view class="key">冲印尺寸</view>
+        <view class="val">{{width_mm}} x {{height_mm}} mm</view>
+      </view>
+      <view class="list">
+        <view class="key">文件大小</view>
+        <view class="val">{{m1.showSize(file_size_min,file_size_max)}}</view>
+      </view>
+      <view class="list">
+        <view class="key">文件格式</view>
+        <view class="val">{{photo_format}}</view>
+      </view>
+    </view>
+    <view class="actititle">指定底色</view>
+    <colorsel color="{{background_color}}"
+              coloridx="{{colorIdx}}"
+              isleft="{{true}}"
+              onSetidx="onSetidx"></colorsel>
+    <view class="btn" catchTap="sureid" hover-class="activebtn" hover-start-time="10" hover-stay-time="100">确认使用该规格</view>
+  </view>
+</pop>
